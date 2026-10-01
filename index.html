@@ -1,0 +1,3455 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width,
+      initial-scale=1.0,
+      maximum-scale=1.0,
+      viewport-fit=cover">
+
+<meta name="theme-color" content="#142943">
+
+<title>قطع غيار برو</title>
+
+<style>
+
+/* =========================
+   الإعدادات العامة
+========================= */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+    Tahoma,
+    Arial,
+    sans-serif;
+
+    background:#f7f8fa;
+    color:#172033;
+
+    overflow-x:hidden;
+}
+
+button,
+input,
+select{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+
+/* =========================
+   الألوان
+========================= */
+
+:root{
+    --navy:#142943;
+    --navy2:#1b3d67;
+
+    --blue:#155b9e;
+    --blue2:#2879c5;
+
+    --orange:#f5820b;
+    --orange2:#ff9b19;
+
+    --white:#ffffff;
+    --gray:#f1f3f5;
+    --gray2:#dfe3e8;
+
+    --text:#172033;
+    --muted:#6e7783;
+
+    --shadow:
+    0 5px 18px rgba(0,0,0,.10);
+
+    --radius:14px;
+}
+
+
+/* =========================
+   الحاوية
+========================= */
+
+.container{
+    width:min(1380px,94%);
+    margin:auto;
+}
+
+
+/* =========================
+   الهيدر
+========================= */
+
+.header{
+    background:var(--navy);
+    color:white;
+
+    height:105px;
+
+    display:flex;
+    align-items:center;
+
+    box-shadow:
+    0 2px 10px rgba(0,0,0,.18);
+
+    position:relative;
+    z-index:20;
+}
+
+.header-inner{
+    width:min(1380px,94%);
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:25px;
+}
+
+
+/* اللوجو */
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    min-width:260px;
+}
+
+.logo-icon{
+    width:65px;
+    height:65px;
+
+    border:3px solid var(--orange);
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:34px;
+
+    color:var(--orange);
+
+    overflow:hidden;
+}
+
+.logo-text h1{
+    font-size:30px;
+    line-height:1;
+    font-weight:900;
+}
+
+.logo-text p{
+    color:#e6eaf0;
+    font-size:13px;
+    margin-top:6px;
+}
+
+
+/* القائمة */
+
+.nav{
+    display:flex;
+    align-items:center;
+    gap:36px;
+
+    font-weight:bold;
+}
+
+.nav a{
+    position:relative;
+    padding:38px 0;
+    white-space:nowrap;
+}
+
+.nav a:hover{
+    color:var(--orange);
+}
+
+.nav a.active::after{
+    content:"";
+
+    position:absolute;
+
+    bottom:28px;
+    right:0;
+    left:0;
+
+    height:3px;
+
+    background:var(--orange);
+
+    border-radius:10px;
+}
+
+
+/* أزرار الهيدر */
+
+.header-actions{
+    display:flex;
+    gap:12px;
+}
+
+.header-btn{
+    width:54px;
+    height:54px;
+
+    background:white;
+    color:var(--navy);
+
+    border:0;
+    border-radius:12px;
+
+    font-size:25px;
+
+    position:relative;
+
+    box-shadow:
+    0 3px 8px rgba(0,0,0,.12);
+}
+
+.cart-count{
+    position:absolute;
+
+    top:-7px;
+    right:-7px;
+
+    width:22px;
+    height:22px;
+
+    background:var(--orange);
+    color:white;
+
+    border-radius:50%;
+
+    font-size:12px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-weight:bold;
+}
+
+
+/* =========================
+   البحث
+========================= */
+
+.search-area{
+    padding:12px 0;
+    background:white;
+}
+
+.search-box{
+    width:min(820px,100%);
+    margin:auto;
+
+    height:50px;
+
+    display:flex;
+
+    background:#f3f4f6;
+
+    border:1px solid #d9dde2;
+
+    border-radius:13px;
+
+    overflow:hidden;
+}
+
+.search-box input{
+    flex:1;
+
+    border:0;
+    outline:0;
+
+    background:transparent;
+
+    padding:0 20px;
+
+    font-size:16px;
+
+    color:#333;
+}
+
+.search-box input::placeholder{
+    color:#707780;
+}
+
+.search-btn{
+    width:125px;
+
+    border:0;
+
+    background:var(--orange);
+
+    color:white;
+
+    font-size:17px;
+    font-weight:bold;
+}
+
+.search-btn:hover{
+    background:#df6e00;
+}
+
+
+/* =========================
+   البانر
+========================= */
+
+.hero{
+    margin-top:5px;
+
+    min-height:215px;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        100deg,
+        #174e87,
+        #0d396d 55%,
+        #153f6d
+    );
+
+    color:white;
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+}
+
+.hero-content{
+    padding:30px 55px;
+
+    width:65%;
+
+    position:relative;
+    z-index:2;
+}
+
+.hero h2{
+    font-size:39px;
+
+    line-height:1.2;
+
+    margin-bottom:12px;
+
+    font-weight:900;
+}
+
+.hero p{
+    font-size:15px;
+
+    color:#e8edf4;
+
+    line-height:1.8;
+
+    margin-bottom:22px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+}
+
+.hero-btn{
+    border:0;
+
+    min-width:180px;
+
+    height:44px;
+
+    border-radius:9px;
+
+    font-size:16px;
+
+    font-weight:bold;
+}
+
+.shop-btn{
+    background:var(--orange);
+    color:white;
+}
+
+.shop-btn:hover{
+    background:#df7000;
+}
+
+.categories-btn{
+    background:transparent;
+
+    border:2px solid white;
+
+    color:white;
+}
+
+
+/* شكل قطع الغيار */
+
+.hero-products{
+    position:absolute;
+
+    left:30px;
+    bottom:10px;
+
+    width:36%;
+    height:90%;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:10px;
+
+    transform:rotate(-3deg);
+}
+
+.car-part{
+    background:#252c32;
+
+    box-shadow:
+    0 15px 25px rgba(0,0,0,.35);
+
+    position:relative;
+}
+
+.battery{
+    width:120px;
+    height:80px;
+
+    border-radius:8px;
+
+    background:
+    linear-gradient(#3b4248,#171a1d);
+}
+
+.battery::before,
+.battery::after{
+    content:"";
+
+    position:absolute;
+
+    width:17px;
+    height:17px;
+
+    background:#111;
+
+    border-radius:4px;
+
+    top:-8px;
+}
+
+.battery::before{
+    right:18px;
+}
+
+.battery::after{
+    left:18px;
+}
+
+.filter{
+    width:48px;
+    height:82px;
+
+    border-radius:8px;
+
+    background:
+    repeating-linear-gradient(
+        90deg,
+        #c5c5c5 0px,
+        #eee 4px,
+        #b3b3b3 8px
+    );
+}
+
+.brake{
+    width:90px;
+    height:38px;
+
+    border-radius:50%;
+
+    background:#303030;
+
+    transform:rotate(15deg);
+}
+
+.spark{
+    width:13px;
+    height:70px;
+
+    background:#ddd;
+
+    transform:rotate(35deg);
+
+    border-radius:5px;
+}
+
+
+/* =========================
+   عنوان القسم
+========================= */
+
+.section{
+    margin-top:25px;
+}
+
+.section-title{
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    margin-bottom:14px;
+}
+
+.section-title h2{
+    font-size:32px;
+
+    color:#172033;
+
+    font-weight:900;
+}
+
+.show-all{
+    color:#b66b0a;
+
+    font-weight:bold;
+
+    font-size:16px;
+}
+
+
+/* =========================
+   الأقسام
+========================= */
+
+.categories{
+    display:grid;
+
+    grid-template-columns:
+    repeat(6,1fr);
+
+    gap:14px;
+}
+
+.category{
+    background:white;
+
+    min-height:130px;
+
+    border-radius:14px;
+
+    box-shadow:var(--shadow);
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    flex-direction:column;
+
+    gap:9px;
+
+    transition:.2s;
+}
+
+.category:hover{
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.14);
+}
+
+.category-icon{
+    width:53px;
+    height:53px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:white;
+
+    font-size:27px;
+
+    background:var(--blue);
+}
+
+.category:nth-child(even)
+.category-icon{
+    background:var(--orange);
+}
+
+.category h3{
+    font-size:16px;
+}
+
+.category span{
+    font-size:13px;
+
+    color:#555;
+}
+
+
+/* =========================
+   المنتجات
+========================= */
+
+.products{
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:18px;
+}
+
+.product{
+    background:white;
+
+    border-radius:13px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+    position:relative;
+
+    transition:.2s;
+}
+
+.product:hover{
+    transform:translateY(-4px);
+}
+
+.product-image{
+    height:175px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #f6f7f8,
+        #e7e9eb
+    );
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+
+/* صور منتجات بشكل CSS */
+
+.product-image::after{
+    content:"";
+
+    width:130px;
+    height:80px;
+
+    border-radius:15px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #202326,
+        #4c5154
+    );
+
+    box-shadow:
+    0 12px 20px rgba(0,0,0,.25);
+
+    transform:rotate(-8deg);
+}
+
+.product:nth-child(1)
+.product-image::after{
+    width:55px;
+    height:105px;
+    border-radius:9px;
+}
+
+.product:nth-child(2)
+.product-image::after{
+    width:140px;
+    height:80px;
+}
+
+.product:nth-child(3)
+.product-image::after{
+    width:130px;
+    height:55px;
+    border-radius:50%;
+}
+
+.product:nth-child(4)
+.product-image::after{
+    width:75px;
+    height:120px;
+    border-radius:12px;
+    background:
+    linear-gradient(
+        90deg,
+        #202020,
+        #424242
+    );
+}
+
+.badge{
+    position:absolute;
+
+    top:10px;
+    right:10px;
+
+    background:var(--orange);
+
+    color:white;
+
+    padding:5px 10px;
+
+    border-radius:7px;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    z-index:2;
+}
+
+.discount{
+    background:#13a95c;
+}
+
+
+/* معلومات المنتج */
+
+.product-info{
+    padding:13px 14px 0;
+
+    text-align:right;
+}
+
+.product-info h3{
+    font-size:16px;
+
+    line-height:1.6;
+
+    min-height:48px;
+}
+
+.rating{
+    color:#e69a00;
+
+    font-size:13px;
+
+    margin:5px 0;
+}
+
+.rating span{
+    color:#444;
+    margin-right:5px;
+}
+
+.price{
+    font-size:20px;
+
+    color:#ef7600;
+
+    font-weight:900;
+
+    margin-bottom:8px;
+}
+
+.old-price{
+    color:#999;
+
+    text-decoration:line-through;
+
+    font-size:13px;
+
+    margin-right:5px;
+}
+
+.add-cart{
+    width:100%;
+
+    height:40px;
+
+    border:0;
+
+    background:var(--orange);
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:bold;
+}
+
+.add-cart:hover{
+    background:#dc6e00;
+}
+
+
+/* =========================
+   شريط المميزات
+========================= */
+
+.features{
+    margin-top:22px;
+
+    background:#dcecf8;
+
+    border-radius:14px;
+
+    min-height:75px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    align-items:center;
+}
+
+.feature{
+    text-align:center;
+
+    border-left:1px solid #aebdca;
+}
+
+.feature:last-child{
+    border:0;
+}
+
+.feature strong{
+    display:block;
+
+    font-size:19px;
+}
+
+.feature span{
+    font-size:13px;
+
+    color:#3f4b56;
+}
+
+.feature-icon{
+    font-size:25px;
+
+    margin-left:6px;
+}
+
+
+/* =========================
+   الفوتر
+========================= */
+
+.footer{
+    margin-top:0;
+
+    background:white;
+
+    text-align:center;
+
+    padding:12px;
+
+    color:#4f5660;
+
+    font-size:14px;
+
+    border-top:1px solid #ddd;
+}
+
+
+/* =========================
+   إشعار السلة
+========================= */
+
+.toast{
+    position:fixed;
+
+    bottom:25px;
+    left:50%;
+
+    transform:
+    translate(-50%,120px);
+
+    background:#142943;
+
+    color:white;
+
+    padding:13px 25px;
+
+    border-radius:10px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.25);
+
+    opacity:0;
+
+    transition:.3s;
+
+    z-index:100;
+}
+
+.toast.show{
+    transform:
+    translate(-50%,0);
+
+    opacity:1;
+}
+
+
+/* =====================================================
+   لوحة الإدارة
+===================================================== */
+
+.admin-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.65);
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:15px;
+
+    z-index:9999;
+}
+
+
+.admin-overlay.show{
+
+    display:flex;
+
+}
+
+
+.admin-box{
+
+    width:min(700px,100%);
+
+    max-height:92vh;
+
+    overflow:auto;
+
+    background:white;
+
+    border-radius:18px;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.35);
+
+}
+
+
+.admin-header{
+
+    background:#142943;
+
+    color:white;
+
+    padding:16px 20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+}
+
+
+.admin-header h2{
+
+    font-size:20px;
+
+}
+
+
+.admin-header button{
+
+    width:38px;
+
+    height:38px;
+
+    border:0;
+
+    border-radius:8px;
+
+    background:#f5820b;
+
+    color:white;
+
+    font-size:20px;
+
+}
+
+
+/* التبويبات */
+
+.admin-tabs{
+
+    display:flex;
+
+    gap:5px;
+
+    padding:10px;
+
+    background:#f1f3f5;
+
+}
+
+
+.admin-tab{
+
+    flex:1;
+
+    padding:11px 5px;
+
+    border:0;
+
+    border-radius:8px;
+
+    background:white;
+
+    font-weight:bold;
+
+}
+
+
+.admin-tab.active{
+
+    background:#f5820b;
+
+    color:white;
+
+}
+
+
+/* محتوى الإدارة */
+
+.admin-content{
+
+    padding:20px;
+
+}
+
+
+.admin-content h3{
+
+    margin-bottom:8px;
+
+    color:#142943;
+
+}
+
+
+.admin-note{
+
+    color:#777;
+
+    font-size:13px;
+
+    margin-bottom:15px;
+
+}
+
+
+/* المنتج داخل لوحة التحكم */
+
+.admin-product{
+
+    border:1px solid #ddd;
+
+    border-radius:12px;
+
+    padding:12px;
+
+    margin-bottom:12px;
+
+    display:grid;
+
+    grid-template-columns:90px 1fr;
+
+    gap:12px;
+
+}
+
+
+.admin-product-image{
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:10px;
+
+    background:#f1f3f5;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+
+.admin-product-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+.admin-product-image span{
+
+    font-size:28px;
+
+}
+
+
+.admin-fields{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:7px;
+
+}
+
+
+.admin-fields input{
+
+    width:100%;
+
+    height:38px;
+
+    border:1px solid #ccc;
+
+    border-radius:7px;
+
+    padding:0 10px;
+
+    outline:none;
+
+}
+
+
+.admin-fields input:focus{
+
+    border-color:#f5820b;
+
+}
+
+
+.admin-file{
+
+    width:100%;
+
+    margin:8px 0 15px;
+
+}
+
+
+.admin-save-product{
+
+    border:0;
+
+    background:#f5820b;
+
+    color:white;
+
+    border-radius:7px;
+
+    padding:8px 15px;
+
+    font-weight:bold;
+
+}
+
+
+/* بيانات المحل */
+
+.admin-content label{
+
+    display:block;
+
+    font-weight:bold;
+
+    margin-top:14px;
+
+    margin-bottom:6px;
+
+}
+
+
+.admin-input{
+
+    width:100%;
+
+    height:45px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    padding:0 12px;
+
+    outline:none;
+
+}
+
+
+.logo-preview{
+
+    width:100px;
+
+    height:100px;
+
+    margin:10px 0;
+
+    border-radius:15px;
+
+    background:#f1f3f5;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+
+.logo-preview img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+}
+
+
+.save-admin{
+
+    width:100%;
+
+    height:45px;
+
+    border:0;
+
+    border-radius:8px;
+
+    background:#f5820b;
+
+    color:white;
+
+    font-weight:bold;
+
+    font-size:16px;
+
+    margin-top:15px;
+
+}
+
+
+/* الصفحات */
+
+.page-setting{
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    padding:14px;
+
+    margin-bottom:10px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:5px;
+
+}
+
+
+.page-setting span{
+
+    color:#777;
+
+    font-size:13px;
+
+}
+
+
+/* =========================
+   موبايل
+========================= */
+
+@media(max-width:900px){
+
+    .header{
+        height:auto;
+
+        padding:12px 0;
+    }
+
+    .header-inner{
+        flex-wrap:wrap;
+
+        gap:12px;
+    }
+
+    .logo{
+        min-width:auto;
+    }
+
+    .logo-icon{
+        width:50px;
+        height:50px;
+
+        font-size:27px;
+    }
+
+    .logo-text h1{
+        font-size:22px;
+    }
+
+    .logo-text p{
+        font-size:10px;
+    }
+
+    .nav{
+        order:3;
+
+        width:100%;
+
+        justify-content:center;
+
+        gap:20px;
+
+        overflow-x:auto;
+
+        padding-bottom:5px;
+    }
+
+    .nav a{
+        padding:8px 0;
+
+        font-size:13px;
+    }
+
+    .nav a.active::after{
+        bottom:0;
+    }
+
+    .header-actions{
+        margin-right:auto;
+    }
+
+    .header-btn{
+        width:43px;
+        height:43px;
+
+        font-size:20px;
+    }
+
+    .hero{
+        min-height:330px;
+
+        border-radius:18px;
+    }
+
+    .hero-content{
+        width:100%;
+
+        padding:28px 22px;
+
+        text-align:center;
+    }
+
+    .hero h2{
+        font-size:28px;
+    }
+
+    .hero p{
+        font-size:12px;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+
+        gap:10px;
+    }
+
+    .hero-btn{
+        min-width:140px;
+    }
+
+    .hero-products{
+        opacity:.18;
+
+        width:100%;
+
+        left:0;
+    }
+
+    .categories{
+        grid-template-columns:
+        repeat(3,1fr);
+
+        gap:10px;
+    }
+
+    .category{
+        min-height:115px;
+    }
+
+    .products{
+        grid-template-columns:
+        repeat(2,1fr);
+
+        gap:10px;
+    }
+
+    .product-image{
+        height:140px;
+    }
+
+    .section-title h2{
+        font-size:25px;
+    }
+
+}
+
+
+/* =========================
+   هاتف صغير
+========================= */
+
+@media(max-width:500px){
+
+    .container{
+        width:94%;
+    }
+
+    .logo-text h1{
+        font-size:19px;
+    }
+
+    .logo-text p{
+        font-size:9px;
+    }
+
+    .header-actions{
+        gap:5px;
+    }
+
+    .header-btn{
+        width:39px;
+        height:39px;
+    }
+
+    .nav{
+        justify-content:flex-start;
+        gap:25px;
+    }
+
+    .search-box{
+        height:47px;
+    }
+
+    .search-btn{
+        width:80px;
+        font-size:14px;
+    }
+
+    .hero{
+        min-height:310px;
+    }
+
+    .hero h2{
+        font-size:25px;
+    }
+
+    .hero p{
+        font-size:11px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+
+        align-items:center;
+    }
+
+    .hero-btn{
+        width:90%;
+
+        max-width:280px;
+    }
+
+    .categories{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .category-icon{
+        width:45px;
+        height:45px;
+        font-size:22px;
+    }
+
+    .category h3{
+        font-size:14px;
+    }
+
+    .category span{
+        font-size:11px;
+    }
+
+    .products{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .product-image{
+        height:120px;
+    }
+
+    .product-info{
+        padding:9px;
+    }
+
+    .product-info h3{
+        font-size:13px;
+
+        min-height:55px;
+    }
+
+    .rating{
+        font-size:11px;
+    }
+
+    .price{
+        font-size:17px;
+    }
+
+    .add-cart{
+        height:38px;
+
+        font-size:12px;
+    }
+
+    .features{
+        grid-template-columns:1fr;
+
+        padding:12px 0;
+    }
+
+    .feature{
+        border:0;
+
+        border-bottom:1px solid #b8c7d2;
+
+        padding:8px;
+    }
+
+    .feature:last-child{
+        border:0;
+    }
+
+    .admin-box{
+
+        max-height:95vh;
+
+        border-radius:12px;
+
+    }
+
+    .admin-content{
+
+        padding:14px;
+
+    }
+
+    .admin-product{
+
+        grid-template-columns:70px 1fr;
+
+    }
+
+    .admin-product-image{
+
+        width:70px;
+
+        height:70px;
+
+    }
+
+}
+
+
+/* =========================
+   هاتف صغير جداً
+========================= */
+
+@media(max-width:360px){
+
+    .logo-text{
+        display:none;
+    }
+
+    .header-actions{
+        margin-right:auto;
+    }
+
+    .categories{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .product-image{
+        height:105px;
+    }
+
+    .product-info h3{
+        font-size:12px;
+    }
+
+    .price{
+        font-size:15px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     الهيدر
+========================= -->
+
+<header class="header">
+
+    <div class="header-inner">
+
+        <a class="logo" href="#">
+
+            <div class="logo-icon">
+                ⚙
+            </div>
+
+            <div class="logo-text">
+                <h1>قطع غيار برو</h1>
+                <p>قطع غيار أصلية • توصيل سريع</p>
+            </div>
+
+        </a>
+
+
+        <nav class="nav">
+
+            <a class="active" href="#">
+                الرئيسية
+            </a>
+
+            <a href="#categories">
+                الفئات
+            </a>
+
+            <a href="#offers">
+                العروض
+            </a>
+
+            <a href="#">
+                عن المتجر
+            </a>
+
+            <a href="#">
+                تواصل معنا
+            </a>
+
+        </nav>
+
+
+        <div class="header-actions">
+
+            <button class="header-btn">
+                ⌕
+            </button>
+
+            <button
+                class="header-btn"
+                onclick="openCart()">
+
+                🛒
+
+                <span
+                    class="cart-count"
+                    id="cartCount">
+                    0
+                </span>
+
+            </button>
+
+            <button class="header-btn">
+                ♙
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================
+     البحث
+========================= -->
+
+<div class="search-area">
+
+    <div class="container">
+
+        <div class="search-box">
+
+            <input
+                id="searchInput"
+                type="text"
+                placeholder="إبحث عن قطعة غيار - مثال: فلتر زيت، بطارية، تيل فرامل...">
+
+            <button
+                class="search-btn"
+                onclick="searchProducts()">
+
+                🔍 بحث
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<main class="container">
+
+
+<!-- =========================
+     البانر
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h2>
+            قطع غيار أصلية بجودة مضمونة
+        </h2>
+
+        <p>
+            نوفر جميع قطع غيار السيارات الأصلية والمعتمدة
+            لجميع الماركات • ضمان سنة • توصيل خلال
+            24-48 ساعة لجميع المدن
+        </p>
+
+        <div class="hero-buttons">
+
+            <button
+                class="hero-btn shop-btn"
+                onclick="scrollToProducts()">
+
+                تسوق الآن ←
+
+            </button>
+
+            <button
+                class="hero-btn categories-btn"
+                onclick="document
+                .getElementById('categories')
+                .scrollIntoView()">
+
+                تصفح الفئات
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-products">
+
+        <div class="car-part filter"></div>
+
+        <div class="car-part battery"></div>
+
+        <div class="car-part brake"></div>
+
+        <div class="car-part spark"></div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     الأقسام
+========================= -->
+
+<section
+    class="section"
+    id="categories">
+
+    <div class="section-title">
+
+        <h2>
+            فئات المنتجات
+        </h2>
+
+        <a
+            class="show-all"
+            href="#">
+            عرض جميع الفئات ←
+        </a>
+
+    </div>
+
+
+    <div class="categories">
+
+
+        <div class="category">
+
+            <div class="category-icon">
+                ⚙
+            </div>
+
+            <h3>
+                نظام التعليق
+            </h3>
+
+            <span>
+                70+ منتج
+            </span>
+
+        </div>
+
+
+        <div class="category">
+
+            <div class="category-icon">
+                💡
+            </div>
+
+            <h3>
+                مصابيح وإضاءة
+            </h3>
+
+            <span>
+                90+ منتج
+            </span>
+
+        </div>
+
+
+        <div class="category">
+
+            <div class="category-icon">
+                🛢
+            </div>
+
+            <h3>
+                زيوت ومحركات
+            </h3>
+
+            <span>
+                150+ منتج
+            </span>
+
+        </div>
+
+
+        <div class="category">
+
+            <div class="category-icon">
+                ◉
+            </div>
+
+            <h3>
+                نظام الفرامل
+            </h3>
+
+            <span>
+                200+ منتج
+            </span>
+
+        </div>
+
+
+        <div class="category">
+
+            <div class="category-icon">
+                🔋
+            </div>
+
+            <h3>
+                بطاريات
+            </h3>
+
+            <span>
+                85+ منتج
+            </span>
+
+        </div>
+
+
+        <div class="category">
+
+            <div class="category-icon">
+                ▤
+            </div>
+
+            <h3>
+                فلاتر
+            </h3>
+
+            <span>
+                120+ منتج
+            </span>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     المنتجات
+========================= -->
+
+<section
+    class="section"
+    id="offers">
+
+    <div class="section-title">
+
+        <h2>
+            الأكثر مبيعاً
+        </h2>
+
+        <select
+            id="sortProducts"
+            onchange="sortProducts()"
+            style="
+            padding:9px 15px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            background:white;
+            font-weight:bold;
+            ">
+
+            <option value="popular">
+                الترتيب: الأكثر مبيعاً
+            </option>
+
+            <option value="price">
+                السعر
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <div
+        class="products"
+        id="products">
+
+
+        <!-- المنتج 1 -->
+
+        <div
+            class="product"
+            data-name="فلتر زيت تويوتا كامري 2018"
+            data-price="85">
+
+            <div class="product-image">
+
+                <span class="badge">
+                    الأكثر مبيعاً
+                </span>
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    فلتر زيت - تويوتا كامري 2018
+                </h3>
+
+                <div class="rating">
+                    ★★★★★
+                    <span>
+                        4.8 تقييم 127
+                    </span>
+                </div>
+
+                <div class="price">
+                    85 ر.س
+                </div>
+
+            </div>
+
+            <button
+                class="add-cart"
+                onclick="addToCart('فلتر زيت تويوتا كامري 2018',85)">
+
+                🛒 أضف إلى السلة
+
+            </button>
+
+        </div>
+
+
+
+        <!-- المنتج 2 -->
+
+        <div
+            class="product"
+            data-name="بطارية 12V 70AH"
+            data-price="320">
+
+            <div class="product-image">
+
+                <span class="badge">
+                    الأكثر مبيعاً
+                </span>
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    بطارية - 70AH - 12V
+                    ضمان سنة
+                </h3>
+
+                <div class="rating">
+                    ★★★★☆
+                    <span>
+                        4.7 تقييم 95
+                    </span>
+                </div>
+
+                <div class="price">
+
+                    <span class="old-price">
+                        370 ر.س
+                    </span>
+
+                    320 ر.س
+
+                </div>
+
+            </div>
+
+            <button
+                class="add-cart"
+                onclick="addToCart('بطارية 12V 70AH',320)">
+
+                🛒 أضف إلى السلة
+
+            </button>
+
+        </div>
+
+
+
+        <!-- المنتج 3 -->
+
+        <div
+            class="product"
+            data-name="تيل فرامل أمامي هوندا أكورد"
+            data-price="145">
+
+            <div class="product-image">
+
+                <span class="badge discount">
+                    خصم 15%
+                </span>
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    تيل فرامل أمامي -
+                    هوندا أكورد 2019
+                </h3>
+
+                <div class="rating">
+                    ★★★★★
+                    <span>
+                        4.9 تقييم 210
+                    </span>
+                </div>
+
+                <div class="price">
+
+                    <span class="old-price">
+                        170 ر.س
+                    </span>
+
+                    145 ر.س
+
+                </div>
+
+            </div>
+
+            <button
+                class="add-cart"
+                onclick="addToCart('تيل فرامل هوندا أكورد',145)">
+
+                🛒 أضف إلى السلة
+
+            </button>
+
+        </div>
+
+
+
+        <!-- المنتج 4 -->
+
+        <div
+            class="product"
+            data-name="زيت محرك تخليقي 5W-30"
+            data-price="120">
+
+            <div class="product-image">
+
+                <span class="badge">
+                    الأكثر مبيعاً
+                </span>
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    زيت محرك تخليقي
+                    5W-30 - 5 لتر
+                </h3>
+
+                <div class="rating">
+                    ★★★★★
+                    <span>
+                        4.8 تقييم 180
+                    </span>
+                </div>
+
+                <div class="price">
+                    120 ر.س
+                </div>
+
+            </div>
+
+            <button
+                class="add-cart"
+                onclick="addToCart('زيت محرك 5W-30',120)">
+
+                🛒 أضف إلى السلة
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     المميزات
+========================= -->
+
+<section class="features">
+
+    <div class="feature">
+
+        <strong>
+            🛡️ ضمان سنة
+        </strong>
+
+        <span>
+            ضمان على جميع المنتجات
+        </span>
+
+    </div>
+
+
+    <div class="feature">
+
+        <strong>
+            🚚 توصيل سريع
+        </strong>
+
+        <span>
+            توصيل خلال 24-48 ساعة
+        </span>
+
+    </div>
+
+
+    <div class="feature">
+
+        <strong>
+            🔒 دفع آمن
+        </strong>
+
+        <span>
+            طرق دفع متعددة وآمنة
+        </span>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================
+     الفوتر
+========================= -->
+
+<footer class="footer">
+
+    قطع غيار برو © 2026
+    -
+    جميع الحقوق محفوظة
+    |
+    سياسة الخصوصية
+    |
+    الشروط والأحكام
+
+</footer>
+
+
+
+<!-- إشعار -->
+
+<div
+    class="toast"
+    id="toast">
+
+    تمت إضافة المنتج إلى السلة ✓
+
+</div>
+
+
+
+<!-- =====================================================
+     لوحة الإدارة
+===================================================== -->
+
+<div id="adminPanel" class="admin-overlay">
+
+    <div class="admin-box">
+
+        <div class="admin-header">
+
+            <h2>⚙️ إدارة المتجر</h2>
+
+            <button onclick="closeAdmin()">
+                ✕
+            </button>
+
+        </div>
+
+
+        <!-- التبويبات -->
+
+        <div class="admin-tabs">
+
+            <button
+                class="admin-tab active"
+                onclick="showAdminTab('productsAdmin',this)">
+                المنتجات
+            </button>
+
+            <button
+                class="admin-tab"
+                onclick="showAdminTab('shopAdmin',this)">
+                بيانات المحل
+            </button>
+
+            <button
+                class="admin-tab"
+                onclick="showAdminTab('pagesAdmin',this)">
+                الصفحات
+            </button>
+
+        </div>
+
+
+        <!-- =========================================
+             إدارة المنتجات
+        ========================================== -->
+
+        <div id="productsAdmin"
+             class="admin-content">
+
+            <h3>إدارة المنتجات</h3>
+
+            <p class="admin-note">
+                من هنا تقدر تغير اسم المنتج والسعر والصورة.
+            </p>
+
+
+            <div id="adminProductsList"></div>
+
+        </div>
+
+
+
+        <!-- =========================================
+             بيانات المحل
+        ========================================== -->
+
+        <div id="shopAdmin"
+             class="admin-content"
+             style="display:none">
+
+            <h3>بيانات المحل</h3>
+
+
+            <label>
+                اسم المحل
+            </label>
+
+            <input
+                id="shopNameInput"
+                class="admin-input"
+                type="text"
+                placeholder="مثال: قطع غيار أحمد">
+
+
+            <label>
+                وصف المحل
+            </label>
+
+            <input
+                id="shopDescInput"
+                class="admin-input"
+                type="text"
+                placeholder="قطع غيار أصلية • توصيل سريع">
+
+
+            <label>
+                صورة شعار المحل
+            </label>
+
+            <input
+                id="shopLogoInput"
+                class="admin-file"
+                type="file"
+                accept="image/*"
+                onchange="previewShopLogo(event)">
+
+
+            <div class="logo-preview">
+
+                <img
+                    id="shopLogoPreview"
+                    src=""
+                    alt="شعار المحل">
+
+            </div>
+
+
+            <button
+                class="save-admin"
+                onclick="saveShopSettings()">
+
+                💾 حفظ بيانات المحل
+
+            </button>
+
+        </div>
+
+
+
+        <!-- =========================================
+             الصفحات
+        ========================================== -->
+
+        <div id="pagesAdmin"
+             class="admin-content"
+             style="display:none">
+
+            <h3>إدارة الصفحات</h3>
+
+            <p class="admin-note">
+                الصفحات الموجودة حالياً في الموقع:
+            </p>
+
+
+            <div class="page-setting">
+
+                <strong>
+                    🏠 الرئيسية
+                </strong>
+
+                <span>
+                    الصفحة الرئيسية للمتجر
+                </span>
+
+            </div>
+
+
+            <div class="page-setting">
+
+                <strong>
+                    📦 المنتجات
+                </strong>
+
+                <span>
+                    عرض المنتجات والأسعار
+                </span>
+
+            </div>
+
+
+            <div class="page-setting">
+
+                <strong>
+                    🔥 العروض
+                </strong>
+
+                <span>
+                    المنتجات المخفضة
+                </span>
+
+            </div>
+
+
+            <div class="page-setting">
+
+                <strong>
+                    ℹ️ عن المتجر
+                </strong>
+
+                <span>
+                    معلومات المحل
+                </span>
+
+            </div>
+
+
+            <div class="page-setting">
+
+                <strong>
+                    📞 تواصل معنا
+                </strong>
+
+                <span>
+                    بيانات التواصل
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+/* =========================
+   السلة
+========================= */
+
+let cartCount = 0;
+
+function addToCart(name,price){
+
+    cartCount++;
+
+    document.getElementById(
+        "cartCount"
+    ).textContent = cartCount;
+
+    showToast(
+        "تمت إضافة " +
+        name +
+        " إلى السلة ✓"
+    );
+
+}
+
+
+/* =========================
+   الإشعار
+========================= */
+
+let toastTimer;
+
+function showToast(message){
+
+    const toast =
+    document.getElementById("toast");
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+    clearTimeout(toastTimer);
+
+    toastTimer =
+    setTimeout(function(){
+
+        toast.classList.remove("show");
+
+    },2200);
+
+}
+
+
+/* =========================
+   البحث
+========================= */
+
+function searchProducts(){
+
+    const input =
+    document
+    .getElementById("searchInput")
+    .value
+    .trim()
+    .toLowerCase();
+
+    const products =
+    document.querySelectorAll(".product");
+
+    let found = false;
+
+    products.forEach(function(product){
+
+        const name =
+        product
+        .dataset
+        .name
+        .toLowerCase();
+
+        if(
+            input === "" ||
+            name.includes(input)
+        ){
+
+            product.style.display = "";
+
+            found = true;
+
+        }else{
+
+            product.style.display =
+            "none";
+
+        }
+
+    });
+
+
+    if(input !== ""){
+
+        document
+        .getElementById("offers")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+        if(found){
+
+            showToast(
+                "تم العثور على المنتجات المطلوبة ✓"
+            );
+
+        }else{
+
+            showToast(
+                "لم يتم العثور على المنتج"
+            );
+
+        }
+
+    }
+
+}
+
+
+/* البحث بزر Enter */
+
+document
+.getElementById("searchInput")
+.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Enter"){
+
+            searchProducts();
+
+        }
+
+    }
+);
+
+
+/* =========================
+   ترتيب المنتجات
+========================= */
+
+function sortProducts(){
+
+    const container =
+    document.getElementById("products");
+
+    const products =
+    Array.from(
+        container.querySelectorAll(".product")
+    );
+
+    const type =
+    document
+    .getElementById("sortProducts")
+    .value;
+
+    if(type === "price"){
+
+        products.sort(function(a,b){
+
+            return (
+                Number(a.dataset.price) -
+                Number(b.dataset.price)
+            );
+
+        });
+
+    }
+
+    products.forEach(function(product){
+
+        container.appendChild(product);
+
+    });
+
+}
+
+
+/* =========================
+   الذهاب للمنتجات
+========================= */
+
+function scrollToProducts(){
+
+    document
+    .getElementById("offers")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================
+   السلة
+========================= */
+
+function openCart(){
+
+    if(cartCount === 0){
+
+        showToast(
+            "السلة فارغة حالياً"
+        );
+
+    }else{
+
+        showToast(
+            "عدد المنتجات في السلة: " +
+            cartCount
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   بيانات المنتجات
+===================================================== */
+
+let productsData = [
+
+    {
+        id:1,
+        name:"فلتر زيت - تويوتا كامري 2018",
+        price:85,
+        image:""
+    },
+
+    {
+        id:2,
+        name:"بطارية - 70AH - 12V ضمان سنة",
+        price:320,
+        image:""
+    },
+
+    {
+        id:3,
+        name:"تيل فرامل أمامي - هوندا أكورد 2019",
+        price:145,
+        image:""
+    },
+
+    {
+        id:4,
+        name:"زيت محرك تخليقي 5W-30 - 5 لتر",
+        price:120,
+        image:""
+    }
+
+];
+
+
+/* =====================================================
+   تحميل البيانات
+===================================================== */
+
+function loadStoreData(){
+
+    const saved =
+        localStorage.getItem(
+            "proPartsProducts"
+        );
+
+    if(saved){
+
+        try{
+
+            productsData =
+            JSON.parse(saved);
+
+            productsData.forEach(function(product){
+
+                updateProductOnPage(product);
+
+            });
+
+        }catch(e){
+
+            console.log(e);
+
+        }
+
+    }
+
+
+    const shop =
+        localStorage.getItem(
+            "proPartsShop"
+        );
+
+    if(shop){
+
+        try{
+
+            const data =
+                JSON.parse(shop);
+
+            document
+            .getElementById("shopNameInput")
+            .value =
+            data.name || "";
+
+            document
+            .getElementById("shopDescInput")
+            .value =
+            data.desc || "";
+
+            if(data.logo){
+
+                document
+                .getElementById(
+                    "shopLogoPreview"
+                )
+                .src =
+                data.logo;
+
+                applyShopLogo(data.logo);
+
+            }
+
+            if(data.name){
+
+                document
+                .querySelector(".logo-text h1")
+                .textContent =
+                data.name;
+
+            }
+
+            if(data.desc){
+
+                document
+                .querySelector(".logo-text p")
+                .textContent =
+                data.desc;
+
+            }
+
+        }catch(e){
+
+            console.log(e);
+
+        }
+
+    }
+
+}
+
+
+/* =====================================================
+   فتح لوحة الإدارة
+===================================================== */
+
+function openAdmin(){
+
+    document
+    .getElementById("adminPanel")
+    .classList.add("show");
+
+    renderAdminProducts();
+
+}
+
+
+/* =====================================================
+   إغلاق الإدارة
+===================================================== */
+
+function closeAdmin(){
+
+    document
+    .getElementById("adminPanel")
+    .classList.remove("show");
+
+}
+
+
+/* =====================================================
+   تبويبات الإدارة
+===================================================== */
+
+function showAdminTab(id,button){
+
+    document
+    .querySelectorAll(".admin-content")
+    .forEach(function(tab){
+
+        tab.style.display="none";
+
+    });
+
+
+    document
+    .getElementById(id)
+    .style.display="block";
+
+
+    document
+    .querySelectorAll(".admin-tab")
+    .forEach(function(btn){
+
+        btn.classList.remove("active");
+
+    });
+
+
+    button.classList.add("active");
+
+}
+
+
+/* =====================================================
+   عرض المنتجات داخل الإدارة
+===================================================== */
+
+function renderAdminProducts(){
+
+    const box =
+        document
+        .getElementById(
+            "adminProductsList"
+        );
+
+    box.innerHTML="";
+
+
+    productsData.forEach(function(product){
+
+        const item =
+        document.createElement("div");
+
+        item.className =
+        "admin-product";
+
+
+        const imageHTML =
+        product.image
+
+        ?
+
+        `<img src="${product.image}">`
+
+        :
+
+        `<span>📦</span>`;
+
+
+        item.innerHTML = `
+
+            <div class="admin-product-image">
+
+                ${imageHTML}
+
+            </div>
+
+
+            <div class="admin-fields">
+
+                <input
+                    id="name-${product.id}"
+                    value="${product.name}"
+                    placeholder="اسم المنتج">
+
+
+                <input
+                    id="price-${product.id}"
+                    type="number"
+                    value="${product.price}"
+                    placeholder="السعر">
+
+
+                <input
+                    id="image-${product.id}"
+                    type="file"
+                    accept="image/*">
+
+
+                <button
+                    class="admin-save-product"
+                    onclick="
+                    saveProduct(${product.id})
+                    ">
+
+                    💾 حفظ المنتج
+
+                </button>
+
+            </div>
+
+        `;
+
+
+        box.appendChild(item);
+
+    });
+
+}
+
+
+/* =====================================================
+   حفظ المنتج
+===================================================== */
+
+function saveProduct(id){
+
+    const product =
+        productsData.find(
+            p => p.id === id
+        );
+
+
+    if(!product) return;
+
+
+    const name =
+        document
+        .getElementById(
+            "name-" + id
+        )
+        .value
+        .trim();
+
+
+    const price =
+        document
+        .getElementById(
+            "price-" + id
+        )
+        .value;
+
+
+    const file =
+        document
+        .getElementById(
+            "image-" + id
+        ).files[0];
+
+
+    product.name =
+        name || product.name;
+
+
+    product.price =
+        Number(price) || 0;
+
+
+    if(file){
+
+        const reader =
+            new FileReader();
+
+
+        reader.onload =
+        function(e){
+
+            product.image =
+                e.target.result;
+
+            saveProductsToStorage();
+
+            updateProductOnPage(product);
+
+            renderAdminProducts();
+
+            showToast(
+                "تم حفظ المنتج والصورة ✓"
+            );
+
+        };
+
+
+        reader.readAsDataURL(file);
+
+    }else{
+
+        saveProductsToStorage();
+
+        updateProductOnPage(product);
+
+        renderAdminProducts();
+
+        showToast(
+            "تم حفظ المنتج ✓"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   حفظ المنتجات
+===================================================== */
+
+function saveProductsToStorage(){
+
+    localStorage.setItem(
+        "proPartsProducts",
+        JSON.stringify(productsData)
+    );
+
+}
+
+
+/* =====================================================
+   تحديث المنتج في الصفحة
+===================================================== */
+
+function updateProductOnPage(product){
+
+    const cards =
+        document.querySelectorAll(
+            ".product"
+        );
+
+
+    cards.forEach(function(card){
+
+        if(
+            card.dataset.id ==
+            product.id
+        ){
+
+            const title =
+                card.querySelector(
+                    ".product-info h3"
+                );
+
+            const price =
+                card.querySelector(
+                    ".price"
+                );
+
+
+            if(title)
+                title.textContent =
+                product.name;
+
+
+            if(price)
+                price.innerHTML =
+                product.price + " ر.س";
+
+
+            card.dataset.name =
+                product.name;
+
+            card.dataset.price =
+                product.price;
+
+
+            const imageBox =
+                card.querySelector(
+                    ".product-image"
+                );
+
+
+            if(
+                product.image &&
+                imageBox
+            ){
+
+                imageBox.style.backgroundImage =
+                    `url("${product.image}")`;
+
+                imageBox.style.backgroundSize =
+                    "cover";
+
+                imageBox.style.backgroundPosition =
+                    "center";
+
+                imageBox.style.backgroundRepeat =
+                    "no-repeat";
+
+                imageBox
+                    .querySelectorAll(
+                        ".badge"
+                    )
+                    .forEach(function(b){
+
+                        b.style.zIndex="5";
+
+                    });
+
+            }
+
+        }
+
+    });
+
+}
+
+
+/* =====================================================
+   شعار المحل
+===================================================== */
+
+function previewShopLogo(event){
+
+    const file =
+        event.target.files[0];
+
+
+    if(!file) return;
+
+
+    const reader =
+        new FileReader();
+
+
+    reader.onload =
+    function(e){
+
+        document
+        .getElementById(
+            "shopLogoPreview"
+        )
+        .src =
+        e.target.result;
+
+    };
+
+
+    reader.readAsDataURL(file);
+
+}
+
+
+/* =====================================================
+   حفظ بيانات المحل
+===================================================== */
+
+function saveShopSettings(){
+
+    const name =
+        document
+        .getElementById(
+            "shopNameInput"
+        )
+        .value
+        .trim();
+
+
+    const desc =
+        document
+        .getElementById(
+            "shopDescInput"
+        )
+        .value
+        .trim();
+
+
+    const logo =
+        document
+        .getElementById(
+            "shopLogoPreview"
+        ).src;
+
+
+    const data = {
+
+        name:
+            name || "قطع غيار برو",
+
+        desc:
+            desc || "قطع غيار أصلية • توصيل سريع",
+
+        logo:
+            logo || ""
+
+    };
+
+
+    localStorage.setItem(
+        "proPartsShop",
+        JSON.stringify(data)
+    );
+
+
+    document
+    .querySelector(".logo-text h1")
+    .textContent =
+    data.name;
+
+
+    document
+    .querySelector(".logo-text p")
+    .textContent =
+    data.desc;
+
+
+    if(data.logo){
+
+        applyShopLogo(data.logo);
+
+    }
+
+
+    showToast(
+        "تم حفظ بيانات المحل ✓"
+    );
+
+}
+
+
+/* =====================================================
+   تطبيق شعار المحل
+===================================================== */
+
+function applyShopLogo(src){
+
+    const logoIcon =
+        document.querySelector(
+            ".logo-icon"
+        );
+
+
+    if(!logoIcon) return;
+
+
+    logoIcon.innerHTML = `
+
+        <img
+            src="${src}"
+            style="
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            border-radius:50%;
+            "
+        >
+
+    `;
+
+}
+
+
+/* =====================================================
+   إضافة زر الإدارة للهيدر وتحديث الـ Data IDs
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        /* إعطاء كل بطاقة رقم للتعرف عليها بشكل دقيق */
+
+        document
+        .querySelectorAll(".product")
+        .forEach(function(card,index){
+
+            card.dataset.id =
+                index + 1;
+
+        });
+
+
+        /* تحميل البيانات المخزنة */
+
+        loadStoreData();
+
+
+        /* إضافة زر لوحة الإدارة إلى الهيدر */
+
+        const actions =
+            document.querySelector(
+                ".header-actions"
+            );
+
+
+        if(actions){
+
+            const adminButton =
+                document.createElement(
+                    "button"
+                );
+
+
+            adminButton.className =
+                "header-btn";
+
+
+            adminButton.innerHTML =
+                "⚙️";
+
+
+            adminButton.title =
+                "إدارة المتجر";
+
+
+            adminButton.onclick =
+                openAdmin;
+
+
+            actions.appendChild(
+                adminButton
+            );
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
+
+
